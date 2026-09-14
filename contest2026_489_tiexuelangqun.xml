@@ -12,5 +12,7 @@
     <linkfile src="app/hello_app" dest="packages/demos/contest2026_489_hello_app"/>
     <linkfile src="quickapp/hello_quickapp" dest="packages/apps/contest2026_489_hello_quickapp"/>
     <linkfile src="board/contest_board" dest="vendor/openvela/boards/contest2026_489_board"/>
+    <linkfile src="app/ai_glasses" dest="apps/examples/ai_glasses"/>
+    <linkfile src="driver/qemu_camera.c" dest="nuttx/drivers/video/qemu_camera.c"/>
   </project>
 </manifest>
