@@ -1,0 +1,34 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_AI_GLASSES
+	tristate "\"AI Glasses\" example"
+	default n
+	---help---
+		Enable the \"AI Glasses\" example
+
+if EXAMPLES_AI_GLASSES
+
+config EXAMPLES_AI_GLASSES_PROGNAME
+	string "Program name"
+	default "ai_glasses"
+	---help---
+		This is the name of the program that will be used when the NSH ELF
+		program is installed.
+
+config EXAMPLES_AI_GLASSES_PRIORITY
+	int "AI Glasses task priority"
+	default 100
+
+config EXAMPLES_AI_GLASSES_STACKSIZE
+	int "AI Glasses stack size"
+	default DEFAULT_TASK_STACKSIZE
+
+config EXAMPLES_AI_GLASSES_HEAPSIZE
+	int "AI Glasses heap size"
+	depends on MM_TASK_HEAP
+	default MM_TASK_HEAP_DEFAULT_SIZE
+
+endif
