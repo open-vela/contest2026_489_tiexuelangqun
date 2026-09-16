@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "team_id": "contest2026_489_tiexuelangqun",
+  "github_login": "1214jipai",
+  "generator": "claude-code-collector@1.2.0",
+  "updated_at": "2026-09-16T16:12:37.606Z",
+  "sessions": [
+    {
+      "session_id": "e9916e45-2f9a-4209-8ee6-770037bc58e3",
+      "tool": "claude-code",
+      "started_at": "2026-08-21T20:23:48.734Z",
+      "last_event_at": "2026-08-23T09:35:16.830Z",
+      "event_count": 1021,
+      "file_path": "logs/1214jipai/2026-08-22/claude-code__e9916e45-2f9a-4209-8ee6-770037bc58e3.jsonl",
+      "collection_mode": "cli",
+      "health": "ok",
+      "model": "deepseek-v4-pro"
+    },
+    {
+      "session_id": "8e52cf5c-affc-41ed-96bc-8245ee96e7f0",
+      "tool": "claude-code",
+      "started_at": "2026-08-23T19:30:37.201Z",
+      "last_event_at": "2026-08-26T18:55:17.449Z",
+      "event_count": 1313,
+      "file_path": "logs/1214jipai/2026-08-24/claude-code__8e52cf5c-affc-41ed-96bc-8245ee96e7f0.jsonl",
+      "collection_mode": "cli",
+      "health": "ok",
+      "model": "deepseek-v4-flash"
+    },
+    {
+      "session_id": "0934bd13-c87d-4413-8434-69831ddea082",
+      "tool": "claude-code",
+      "started_at": "2026-09-03T07:29:38.898Z",
+      "last_event_at": "2026-09-04T07:18:36.023Z",
+      "event_count": 131,
+      "file_path": "logs/1214jipai/2026-09-03/claude-code__0934bd13-c87d-4413-8434-69831ddea082.jsonl",
+      "collection_mode": "cli",
+      "health": "ok",
+      "model": "deepseek-v4-flash"
+    },
+    {
+      "session_id": "f85d6ff5-60e5-4490-8d6d-374a04ba8c69",
+      "tool": "claude-code",
+      "started_at": "2026-09-04T10:14:28.104Z",
+      "last_event_at": "2026-09-04T10:16:39.827Z",
+      "event_count": 40,
+      "file_path": "logs/1214jipai/2026-09-04/claude-code__f85d6ff5-60e5-4490-8d6d-374a04ba8c69.jsonl",
+      "collection_mode": "cli",
+      "health": "ok",
+      "model": "deepseek-v4-flash"
+    },
+    {
+      "session_id": "47200fc3-ecce-41d5-8072-b313c9d79946",
+      "tool": "claude-code",
+      "started_at": "2026-09-04T12:04:32.339Z",
+      "last_event_at": "2026-09-04T14:51:02.573Z",
+      "event_count": 77,
+      "file_path": "logs/1214jipai/2026-09-04/claude-code__47200fc3-ecce-41d5-8072-b313c9d79946.jsonl",
+      "collection_mode": "cli",
+      "health": "ok",
+      "model": "deepseek-v4-flash"
+    },
+    {
+      "session_id": "e7b298d1-b2a8-42b1-9a4a-c015ea675351",
+      "tool": "claude-code",
+      "started_at": "2026-09-04T15:44:29.841Z",
+      "last_event_at": "2026-09-08T03:55:27.636Z",
+      "event_count": 1202,
+      "file_path": "logs/1214jipai/2026-09-04/claude-code__e7b298d1-b2a8-42b1-9a4a-c015ea675351.jsonl",
+      "collection_mode": "cli",
+      "health": "ok",
+      "model": "deepseek-v4-flash"
+    },
+    {
+      "session_id": "53cb1ef4-fdb9-4d38-abc8-88ee5593a94d",
+      "tool": "claude-code",
+      "started_at": "2026-09-11T08:59:28.411Z",
+      "last_event_at": "2026-09-11T09:35:03.201Z",
+      "event_count": 279,
+      "file_path": "logs/1214jipai/2026-09-11/claude-code__53cb1ef4-fdb9-4d38-abc8-88ee5593a94d.jsonl",
+      "collection_mode": "cli",
+      "health": "ok",
+      "model": "deepseek-v4-flash"
+    }
+  ]
+}
