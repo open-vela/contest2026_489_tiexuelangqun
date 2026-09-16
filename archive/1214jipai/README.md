@@ -1,5 +1,11 @@
 # openvela AI 眼镜项目 — AI 对话日志归档
 
+> **本目录是归档备份，不参与大赛日志提交。**
+> 大赛要求的日志位于 `logs/1214jipai/`（`manifest.json` + `<date>/claude-code__<sid>.jsonl`，
+> 由组委会的归集工具导出）。本目录保留了更好读的 Markdown 派生视图与逐字节原始
+> JSONL 备份，供自查与复现使用。它原先位于 `logs/1214jipai/` 内，后按 `logs/README.md`
+> 「`logs/` 只放 JSONL 本身」的要求整体迁移至 `archive/`。
+
 本目录是对本项目从**环境搭建**到**TFLite Micro 推理 + 语音播报跑通**全过程的
 Claude Code 会话日志归档。
 
@@ -44,7 +50,7 @@ Claude Code 会话日志归档。
 | 06 | `raw/06_06-TFLiteMicro推理与语音播报__e7b298d1.jsonl` | ✅ 一致 |
 | 07 | `raw/07_07-日志导出会话__53cb1ef4.jsonl` | 🔄 生成时一致；该会话仍在写入，随后必然过期（见边界 2） |
 
-校验方式：`python .\logs\1214jipai\_build\verify.py`（重新比对 sha256）。
+校验方式：`python .\archive\1214jipai\_build\verify.py`（重新比对 sha256）。
 阶段 01–06 的源会话均已结束，其备份应始终校验为一致；
 阶段 07 是**正在进行的会话**，其备份只是导出时刻的快照，源文件在其后仍会继续追加，因此重跑校验对它报“不一致”是**预期行为**，不代表复制出错。
 
@@ -124,7 +130,7 @@ Claude Code 会话日志归档。
 ## 四、目录结构
 
 ```
-logs/1214jipai/
+archive/1214jipai/
 ├── README.md            ← 本文件
 ├── complete-log.md      ← 全部 7 个会话按时间戳合并的完整可读日志（主交付物）
 ├── sessions.json        ← 机器可读的会话索引与统计
@@ -169,7 +175,7 @@ Markdown 是可读的**派生视图**，`raw/` 才是完整原件。已知差异
 ### 重跑导出
 
 ```powershell
-python .\logs\1214jipai\_build\export_logs.py
+python .\archive\1214jipai\_build\export_logs.py
 ```
 
 脚本会重新扫描 `~/.claude/projects/` 下的同名转录并覆盖本目录（`raw/` 亦会重新复制，因此始终与最新会话一致）。
@@ -180,4 +186,11 @@ python .\logs\1214jipai\_build\export_logs.py
 2. **阶段 07 为进行中的会话快照，且必然通不过重跑校验。** 该会话即本次导出动作本身，`raw/07_*.jsonl` 是导出那一刻的副本；源转录在其后仍在追加，因此 `verify.py` 对阶段 07 报“不一致”是**预期行为**，不代表复制出错。阶段 01–06 的校验才是判断复制正确性的依据。
 3. **有两个跨目录的散落会话已核对排除**：`C--Users-10516/f2395086…` 与 `e---claude/3a2ba609…` 均为 2026-08-21 的 12 秒内无关会话，不含 openvela / ai_glasses / nuttx 等任何项目标记。
 4. **阶段 03 的 cwd 位于 WSL**（`\\wsl.localhost\Ubuntu-22.04\home\dev`），依据其内容（ai_glasses、`.repo/build_ai_glasses.log`）判定为同一项目的 WSL 工作副本。
-5. **本目录暂无 `manifest.json`，这是有意为之。** 大赛 collector 的 manifest schema 将 `team_id` 列为必填项，且要求事件文件位于 `logs/<login>/<date>/claude-code__<sid>.jsonl` 且每行符合 `event.schema.json`；而 `raw/` 下是**原始 Claude Code 转录**，不是归一化事件，二者形态不同。待取得 TEAM_ID 后，可另生成一份符合赛事 schema 的事件文件与 manifest.json，与 `raw/` 并存（`raw/` 的 .jsonl 会被 validate-log.py 视为 orphan 并给出 warning，属预期，非错误）。
+5. **本目录不含 `manifest.json`，赛事格式的日志已另行生成到 `logs/1214jipai/`。** `raw/` 下是**原始 Claude Code 转录**，不是归一化事件，二者形态不同。赛事要求的
+   `manifest.json` + `<date>/claude-code__<sid>.jsonl` 由 `snapshot_core`（组委会归集工具的核心
+   归一化逻辑）重新生成，位于 `logs/1214jipai/`，与 `raw/` 并存但互不干扰。
+   `logs/` 现由官方 `validate-log.py` 校验通过（`✅ ALL OK`，7 个文件 / 4,063 个事件，0 error 0 warning）。
+
+   两处与 `contest-snapshot --backfill` 默认行为的有意差异：
+   - `<date>` 取**会话真实的本地开始日期**（2026-08-22 … 2026-09-11），而非导出当天的日期；
+   - 只导出本归档登记的这 7 个会话，不做 `~/.claude/projects/` 全量扫描，避免混入无关会话。
